@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatCounters();
   initNewsletterForm();
   initSmoothScroll();
+  initLoginAlert();
 });
 
 /**
@@ -256,4 +257,27 @@ function showToast(message, type = 'info') {
       }
     }, 300);
   }, 4000);
+}
+
+/**
+ * 7. Login Success Alert Handler
+ */
+function initLoginAlert() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('login') === 'success') {
+    const userStr = localStorage.getItem('smartPlacementUser');
+    let userName = 'Student';
+    if (userStr) {
+      try {
+        const user = JSON.parse(userStr);
+        if (user && user.name) userName = user.name;
+      } catch (e) {
+        // ignore JSON parse error
+      }
+    }
+    showToast(`Welcome to Smart Placement Hub, ${userName}! You are logged in.`, 'success');
+    
+    // Clean up query param from URL bar without reload
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
 }

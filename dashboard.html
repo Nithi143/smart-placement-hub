@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Dashboard - Smart Placement Hub">
+  <title>Student Dashboard | Smart Placement Hub</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Chart.js for interactive analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Backdrop overlay for mobile drawer -->
+  <div class="drawer-backdrop" id="dashboardBackdrop"></div>
+
+  <div class="dashboard-layout">
+    
+    <!-- =======================================================================
+         1. Left Sidebar Navigation
+         ======================================================================= -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+      <!-- Sidebar Header -->
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon-wrapper" style="width: 34px; height: 34px; font-size: 0.95rem;">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span style="font-size: 1.1rem;">Smart<span>Placement</span></span>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="sidebar-menu">
+        <div class="sidebar-label">Overview</div>
+        <a href="dashboard.html" class="sidebar-item active" id="navDash">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="sidebar-label" style="margin-top: 0.5rem;">Preparation Tracks</div>
+        <a href="aptitude.html" class="sidebar-item" id="navAptitude">
+          <i class="fa-solid fa-calculator"></i>
+          <span>Aptitude Practice</span>
+          <span class="badge badge-primary sidebar-badge">3 Modules</span>
+        </a>
+        <a href="coding.html" class="sidebar-item" id="navCoding">
+          <i class="fa-solid fa-code"></i>
+          <span>Coding Arena</span>
+          <span class="badge badge-secondary sidebar-badge">Java/DSA</span>
+        </a>
+        <a href="interview.html" class="sidebar-item" id="navInterview">
+          <i class="fa-solid fa-user-tie"></i>
+          <span>Mock Interviews</span>
+        </a>
+        <a href="planner.html" class="sidebar-item" id="navPlanner">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Study Planner</span>
+          <span class="badge badge-warning sidebar-badge">Today: 4</span>
+        </a>
+
+        <div class="sidebar-label" style="margin-top: 0.5rem;">Analytics & Profile</div>
+        <a href="progress.html" class="sidebar-item" id="navProgress">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Progress & Reports</span>
+        </a>
+        <a href="profile.html" class="sidebar-item" id="navProfile">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Student Profile</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer (Logout) -->
+      <div class="sidebar-footer">
+        <button type="button" class="logout-btn" id="logoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =======================================================================
+         2. Main Content Area
+         ======================================================================= -->
+    <main class="dashboard-main">
+      
+      <!-- Topbar Header -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button type="button" class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Sidebar Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          
+          <div class="topbar-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search topics, problems, aptitude questions...">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Notification Bell -->
+          <button class="icon-btn-badge" aria-label="Notifications" title="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge-dot"></span>
+          </button>
+
+          <!-- User Profile Pill -->
+          <a href="profile.html" class="user-profile-pill" id="topbarUserProfile">
+            <div class="user-avatar-circle" id="userAvatarText">ST</div>
+            <div class="user-profile-meta">
+              <h5 id="topbarUserName">Welcome, Student!</h5>
+              <p id="topbarUserDept">Computer Science • 2026</p>
+            </div>
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard Content Body -->
+      <div class="dashboard-content">
+        
+        <!-- Welcome Hero Banner -->
+        <div class="dash-welcome-banner">
+          <div class="dash-welcome-text">
+            <h1 id="welcomeTitle">Welcome back, Student! 👋</h1>
+            <p>You're on a <strong>14-day study streak</strong>. Complete today's 4 scheduled tasks to boost your campus readiness index to 82%!</p>
+          </div>
+          <div class="dash-welcome-actions">
+            <a href="aptitude.html" class="btn btn-white btn-sm">
+              <i class="fa-solid fa-play"></i> Daily Aptitude Test
+            </a>
+            <a href="coding.html" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.15); color: #FFFFFF; border-color: rgba(255,255,255,0.3);">
+              <i class="fa-solid fa-code"></i> Daily DSA Challenge
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Key Metrics Cards -->
+        <div class="metrics-summary-grid">
+          <!-- Metric 1: Overall Preparation -->
+          <div class="metric-card">
+            <div class="metric-icon-box" style="background: #EEF2FF; color: var(--primary);">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="metric-info">
+              <h3>78%</h3>
+              <p>Overall Readiness</p>
+            </div>
+          </div>
+
+          <!-- Metric 2: Streak -->
+          <div class="metric-card">
+            <div class="metric-icon-box" style="background: #FEF3C7; color: #D97706;">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <div class="metric-info">
+              <h3>14 Days</h3>
+              <p>Current Study Streak</p>
+            </div>
+          </div>
+
+          <!-- Metric 3: Solved Questions -->
+          <div class="metric-card">
+            <div class="metric-icon-box" style="background: #ECFEFF; color: #0891B2;">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="metric-info">
+              <h3>142 / 200</h3>
+              <p>Questions Solved</p>
+            </div>
+          </div>
+
+          <!-- Metric 4: Mock Score -->
+          <div class="metric-card">
+            <div class="metric-icon-box" style="background: #D1FAE5; color: #059669;">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div class="metric-info">
+              <h3>88 / 100</h3>
+              <p>Mock Interview Average</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Body 2-Column Grid -->
+        <div class="dashboard-body-grid">
+          
+          <!-- Left Main Column (Performance & Activity) -->
+          <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+            
+            <!-- Category Progress Breakdown -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <span>Preparation Track Progress</span>
+                </div>
+                <a href="progress.html" class="feature-link" style="font-size: 0.825rem;">Full Report &rarr;</a>
+              </div>
+
+              <div class="modules-progress-grid">
+                <!-- Aptitude -->
+                <div class="module-progress-item">
+                  <div class="module-progress-header">
+                    <span>Quantitative Aptitude</span>
+                    <span style="color: var(--primary);">74%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-thumb" style="width: 74%; background: var(--primary);"></div>
+                  </div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">62 / 85 Solved</span>
+                </div>
+
+                <!-- Coding -->
+                <div class="module-progress-item">
+                  <div class="module-progress-header">
+                    <span>Java & DSA Arena</span>
+                    <span style="color: var(--secondary-hover);">68%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-thumb" style="width: 68%; background: var(--secondary);"></div>
+                  </div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">48 / 70 Solved</span>
+                </div>
+
+                <!-- Mock Interview -->
+                <div class="module-progress-item">
+                  <div class="module-progress-header">
+                    <span>Mock Interviews</span>
+                    <span style="color: var(--accent);">82%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-thumb" style="width: 82%; background: var(--accent);"></div>
+                  </div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">12 Sessions Taken</span>
+                </div>
+              </div>
+
+              <!-- Weekly Progress Chart -->
+              <div style="margin-top: 0.5rem;">
+                <h4 style="font-size: 0.925rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem;">
+                  Weekly Practice Volume & Accuracy
+                </h4>
+                <div style="height: 220px; width: 100%;">
+                  <canvas id="weeklyProgressChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity Stream -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                  <span>Recent Preparation Activity</span>
+                </div>
+                <span class="badge badge-primary">Real-time</span>
+              </div>
+
+              <div class="activity-stream">
+                <div class="activity-node">
+                  <div class="activity-node-icon" style="background: #EEF2FF; color: var(--primary);">
+                    <i class="fa-solid fa-calculator"></i>
+                  </div>
+                  <div class="activity-node-info">
+                    <h5>Completed "Time & Distance" Practice Quiz</h5>
+                    <p>Scored 9/10 (90% accuracy) • Quantitative Aptitude • 2 hours ago</p>
+                  </div>
+                </div>
+
+                <div class="activity-node">
+                  <div class="activity-node-icon" style="background: #ECFEFF; color: #0891B2;">
+                    <i class="fa-solid fa-code"></i>
+                  </div>
+                  <div class="activity-node-info">
+                    <h5>Solved "Two Sum" in Java</h5>
+                    <p>Arrays & Hashmap • Runtime: 2ms • 5 hours ago</p>
+                  </div>
+                </div>
+
+                <div class="activity-node">
+                  <div class="activity-node-icon" style="background: #F5F3FF; color: var(--accent);">
+                    <i class="fa-solid fa-comments"></i>
+                  </div>
+                  <div class="activity-node-info">
+                    <h5>Completed HR Behavioral Mock Round</h5>
+                    <p>Score: 88/100 • Feedback: Strong STAR format responses • Yesterday</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column (Tasks, Schedules & Quick Actions) -->
+          <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+            
+            <!-- Today's Study Tasks Widget -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  <i class="fa-solid fa-list-check"></i>
+                  <span>Today's Study Plan</span>
+                </div>
+                <a href="planner.html" class="feature-link" style="font-size: 0.825rem;">Open Planner &rarr;</a>
+              </div>
+
+              <div class="tasks-list" id="dashboardTasksList">
+                <div class="task-item">
+                  <div class="task-left">
+                    <input type="checkbox" class="task-checkbox" checked>
+                    <div>
+                      <div class="task-title">Solve 10 Quantitative Probability questions</div>
+                      <div class="task-meta">
+                        <span class="badge badge-primary">Aptitude</span>
+                        <span>High Priority</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="task-item">
+                  <div class="task-left">
+                    <input type="checkbox" class="task-checkbox" checked>
+                    <div>
+                      <div class="task-title">Implement Binary Search Tree Traversals in Java</div>
+                      <div class="task-meta">
+                        <span class="badge badge-secondary">Coding</span>
+                        <span>Medium</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="task-item">
+                  <div class="task-left">
+                    <input type="checkbox" class="task-checkbox">
+                    <div>
+                      <div class="task-title">Review OOPs Polymorphism & Abstract Classes</div>
+                      <div class="task-meta">
+                        <span class="badge badge-purple">Interview</span>
+                        <span>High Priority</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="task-item">
+                  <div class="task-left">
+                    <input type="checkbox" class="task-checkbox">
+                    <div>
+                      <div class="task-title">Take TCS Digital Logical Reasoning Mock Test</div>
+                      <div class="task-meta">
+                        <span class="badge badge-warning">Mock Drive</span>
+                        <span>Due 8:00 PM</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upcoming Drives & Tests Schedule -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <span>Upcoming Placement Drives</span>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div style="background: var(--bg-subtle); padding: 0.85rem 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--primary);">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong style="font-size: 0.875rem; color: var(--text-main);">TCS Digital Assessment Drive</strong>
+                    <span class="badge badge-warning">In 3 Days</span>
+                  </div>
+                  <p style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.25rem;">Aptitude + Advanced Coding • 10:00 AM</p>
+                </div>
+
+                <div style="background: var(--bg-subtle); padding: 0.85rem 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--secondary);">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong style="font-size: 0.875rem; color: var(--text-main);">Infosys SP Technical Round</strong>
+                    <span class="badge badge-primary">Next Week</span>
+                  </div>
+                  <p style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.25rem;">DSA + Java OOPs Technical Interview</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Action Shortcuts -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  <i class="fa-solid fa-bolt"></i>
+                  <span>Quick Actions</span>
+                </div>
+              </div>
+
+              <div class="quick-actions-grid">
+                <a href="aptitude.html" class="quick-action-card">
+                  <div class="quick-action-icon" style="background: #EEF2FF; color: var(--primary);">
+                    <i class="fa-solid fa-calculator"></i>
+                  </div>
+                  <div>
+                    <h6>Aptitude Test</h6>
+                    <span>Practice Drills</span>
+                  </div>
+                </a>
+
+                <a href="coding.html" class="quick-action-card">
+                  <div class="quick-action-icon" style="background: #ECFEFF; color: #0891B2;">
+                    <i class="fa-solid fa-code"></i>
+                  </div>
+                  <div>
+                    <h6>Coding Arena</h6>
+                    <span>Solve Java DSA</span>
+                  </div>
+                </a>
+
+                <a href="interview.html" class="quick-action-card">
+                  <div class="quick-action-icon" style="background: #F5F3FF; color: var(--accent);">
+                    <i class="fa-solid fa-user-tie"></i>
+                  </div>
+                  <div>
+                    <h6>Mock Round</h6>
+                    <span>HR & Tech</span>
+                  </div>
+                </a>
+
+                <a href="planner.html" class="quick-action-card">
+                  <div class="quick-action-icon" style="background: #FEF3C7; color: #D97706;">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                  </div>
+                  <div>
+                    <h6>Study Planner</h6>
+                    <span>Add Tasks</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Dashboard Client Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Load user metadata from localStorage
+      const userStr = localStorage.getItem('smartPlacementUser');
+      if (userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          if (user.name) {
+            document.getElementById('topbarUserName').textContent = user.name;
+            document.getElementById('welcomeTitle').textContent = `Welcome back, ${user.name}! 👋`;
+            
+            // Avatar initials
+            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'ST';
+            document.getElementById('userAvatarText').textContent = initials;
+          }
+          if (user.department || user.graduationYear) {
+            const deptText = `${user.department || 'Computer Science'} • ${user.graduationYear || '2026'}`;
+            document.getElementById('topbarUserDept').textContent = deptText;
+          }
+        } catch (e) {
+          console.warn('Could not parse user session', e);
+        }
+      }
+
+      // 2. Mobile Sidebar Toggle
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('dashboardSidebar');
+      const backdrop = document.getElementById('dashboardBackdrop');
+
+      if (sidebarToggle && sidebar && backdrop) {
+        sidebarToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('active');
+          backdrop.classList.toggle('active');
+        });
+
+        backdrop.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+          backdrop.classList.remove('active');
+        });
+      }
+
+      // 3. Logout Handler
+      const logoutBtn = document.getElementById('logoutBtn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          localStorage.removeItem('smartPlacementUser');
+          window.location.href = 'login.html';
+        });
+      }
+
+      // 4. Interactive task checklist toggle
+      document.querySelectorAll('.task-checkbox').forEach(chk => {
+        chk.addEventListener('change', (e) => {
+          const item = e.target.closest('.task-item');
+          if (item) {
+            item.classList.toggle('completed', e.target.checked);
+          }
+        });
+      });
+
+      // 5. Initialize Weekly Chart with Chart.js
+      const ctx = document.getElementById('weeklyProgressChart');
+      if (ctx && typeof Chart !== 'undefined') {
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [
+              {
+                label: 'Questions Solved',
+                data: [12, 18, 15, 24, 20, 28, 25],
+                borderColor: '#4F46E5',
+                backgroundColor: 'rgba(79, 70, 229, 0.08)',
+                fill: true,
+                tension: 0.4,
+                borderWidth: 2.5,
+                pointBackgroundColor: '#4F46E5',
+                pointRadius: 4
+              },
+              {
+                label: 'Accuracy %',
+                data: [75, 80, 78, 85, 82, 90, 88],
+                borderColor: '#10B981',
+                borderDash: [5, 5],
+                borderWidth: 2,
+                fill: false,
+                tension: 0.4,
+                pointBackgroundColor: '#10B981',
+                pointRadius: 3
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: {
+                  font: {
+                    family: "'Plus Jakarta Sans', sans-serif",
+                    size: 12
+                  },
+                  boxWidth: 12
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: {
+                  color: '#F1F5F9'
+                },
+                ticks: {
+                  font: {
+                    size: 11
+                  }
+                }
+              },
+              x: {
+                grid: {
+                  display: false
+                },
+                ticks: {
+                  font: {
+                    size: 11
+                  }
+                }
+              }
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
