@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Placement Hub - Modern student placement preparation platform for mastering aptitude, coding challenges, mock interviews, and study planning.">
+  <meta name="keywords" content="placement preparation, campus placements, aptitude practice, coding practice, mock interview, Java, DSA, study planner">
+  <meta name="author" content="Smart Placement Hub">
+  <title>Smart Placement Hub | Master Placements, Coding & Interviews</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core & Responsive Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Backdrop overlay for mobile drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- =========================================================================
+       1. Navigation Bar
+       ========================================================================= -->
+  <header class="navbar" id="mainNavbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <div class="brand-icon-wrapper">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <span>Smart<span>Placement</span>Hub</span>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#modules" class="nav-link">Modules</a>
+        <a href="#roadmap" class="nav-link">Roadmap</a>
+        <a href="#stats" class="nav-link">Success Stats</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        
+        <!-- Mobile Actions inside Drawer -->
+        <div class="nav-actions-mobile">
+          <a href="login.html" class="btn btn-secondary btn-sm" id="mobileLoginBtn">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+          </a>
+          <a href="register.html" class="btn btn-primary btn-sm" id="mobileRegisterBtn">
+            <i class="fa-solid fa-user-plus"></i> Get Started Free
+          </a>
+        </div>
+      </nav>
+
+      <!-- Action Buttons (Desktop) -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-ghost" id="navLoginBtn">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm" id="navRegisterBtn">
+          <span>Get Started</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu Toggle Button -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. Hero Section
+       ========================================================================= -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Left Column: Copy & CTAs -->
+        <div class="hero-content">
+          <div class="hero-pill">
+            <i class="fa-solid fa-bolt"></i>
+            <span>#1 Placement Preparation Platform for College Students</span>
+          </div>
+
+          <h1 class="hero-title">
+            Crack Your Dream Campus Placement with <span class="gradient-text">Confidence & Skill</span>
+          </h1>
+
+          <p class="hero-description">
+            Your all-in-one placement companion. Practice curated quantitative aptitude, solve company-standard coding challenges, simulate AI mock interviews, and organize daily study schedules effortlessly.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="register.html" class="btn btn-primary btn-lg" id="heroGetStartedBtn">
+              <span>Start Free Preparation</span>
+              <i class="fa-solid fa-rocket"></i>
+            </a>
+            <a href="dashboard.html" class="btn btn-secondary btn-lg" id="heroExploreDemoBtn">
+              <i class="fa-solid fa-desktop"></i>
+              <span>Explore Dashboard</span>
+            </a>
+          </div>
+
+          <!-- Trust & Social Proof Stats -->
+          <div class="hero-trust-row">
+            <div class="avatar-stack">
+              <div class="avatar" style="background-color: #C7D2FE; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #3730A3;">RK</div>
+              <div class="avatar" style="background-color: #BAE6FD; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #0369A1;">SP</div>
+              <div class="avatar" style="background-color: #FDE68A; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #92400E;">AM</div>
+              <div class="avatar" style="background-color: #BBF7D0; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #166534;">VN</div>
+            </div>
+            <div class="trust-text">
+              <div>
+                <span class="trust-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <strong>4.9 / 5</strong> rating
+              </div>
+              <span>Trusted by <strong>15,000+</strong> engineering students</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Interactive Dashboard Mockup Preview -->
+        <div class="hero-visual">
+          <!-- Floating Badge Top Right -->
+          <div class="floating-badge floating-badge-1">
+            <div class="badge-icon-wrap" style="background: #D1FAE5; color: #059669;">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="badge-text-wrap">
+              <strong>94% Mock Score</strong>
+              <span>Java & DSA Track</span>
+            </div>
+          </div>
+
+          <!-- Floating Badge Bottom Left -->
+          <div class="floating-badge floating-badge-2">
+            <div class="badge-icon-wrap" style="background: #FEF3C7; color: #D97706;">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <div class="badge-text-wrap">
+              <strong>14-Day Streak</strong>
+              <span>Daily Study Plan Active</span>
+            </div>
+          </div>
+
+          <!-- Main Dashboard Preview Card -->
+          <div class="hero-card-preview">
+            <div class="preview-header">
+              <div class="preview-user-info">
+                <div class="preview-avatar">NP</div>
+                <div class="preview-user-meta">
+                  <h4>Nithya Prakash</h4>
+                  <p>Computer Science • 2026 Batch</p>
+                </div>
+              </div>
+              <span class="badge badge-success"><i class="fa-solid fa-shield-halved"></i> Ready for Day 1</span>
+            </div>
+
+            <div class="preview-stats-grid">
+              <div class="preview-stat-box">
+                <div class="label">Overall Readiness</div>
+                <div class="value">78%</div>
+                <div class="progress-bar-sm">
+                  <div class="progress-fill" style="width: 78%;"></div>
+                </div>
+              </div>
+              <div class="preview-stat-box">
+                <div class="label">Solved Questions</div>
+                <div class="value">142 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">/ 200</span></div>
+                <div class="progress-bar-sm">
+                  <div class="progress-fill" style="width: 71%; background: linear-gradient(90deg, #10B981, #06B6D4);"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity Snippets -->
+            <div class="preview-activity-list">
+              <div class="preview-activity-item">
+                <div class="activity-left">
+                  <div class="activity-icon" style="background: #EEF2FF; color: #4F46E5;">
+                    <i class="fa-solid fa-calculator"></i>
+                  </div>
+                  <div>
+                    <strong style="display: block; font-size: 0.85rem;">Time & Work Aptitude</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Score: 9/10 • Easy</span>
+                  </div>
+                </div>
+                <span class="badge badge-primary">Completed</span>
+              </div>
+
+              <div class="preview-activity-item">
+                <div class="activity-left">
+                  <div class="activity-icon" style="background: #ECFEFF; color: #0891B2;">
+                    <i class="fa-solid fa-code"></i>
+                  </div>
+                  <div>
+                    <strong style="display: block; font-size: 0.85rem;">Two Sum Problem (Java)</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Arrays & Hashmap</span>
+                  </div>
+                </div>
+                <span class="badge badge-success">Accepted</span>
+              </div>
+
+              <div class="preview-activity-item">
+                <div class="activity-left">
+                  <div class="activity-icon" style="background: #F5F3FF; color: #8B5CF6;">
+                    <i class="fa-solid fa-comments"></i>
+                  </div>
+                  <div>
+                    <strong style="display: block; font-size: 0.85rem;">HR Mock Interview</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Behavioral & Strengths</span>
+                  </div>
+                </div>
+                <span class="badge badge-purple">88/100</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. Placement Partner Company Logos
+       ========================================================================= -->
+  <section class="trust-brands-section">
+    <div class="container">
+      <div class="trust-brands-title">Prepares you for top hiring companies & dream packages</div>
+      <div class="brands-grid">
+        <div class="brand-item"><i class="fa-brands fa-amazon"></i> Amazon</div>
+        <div class="brand-item"><i class="fa-brands fa-microsoft"></i> Microsoft</div>
+        <div class="brand-item"><i class="fa-brands fa-google"></i> Google</div>
+        <div class="brand-item"><i class="fa-solid fa-building"></i> TCS Digital</div>
+        <div class="brand-item"><i class="fa-solid fa-laptop-code"></i> Infosys SP</div>
+        <div class="brand-item"><i class="fa-solid fa-network-wired"></i> Wipro Turbo</div>
+        <div class="brand-item"><i class="fa-solid fa-code-branch"></i> Cognizant GenC</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. Core Modules & Key Features
+       ========================================================================= -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fa-solid fa-cubes"></i> Everything You Need</span>
+        <h2 class="section-title">A Structured Ecosystem for Campus Placements</h2>
+        <p class="section-subtitle">
+          No more hopping across disjointed websites. Smart Placement Hub combines all critical interview tracks into one smooth, personalized workspace.
+        </p>
+      </div>
+
+      <div class="features-grid" id="modules">
+        <!-- Feature 1: Aptitude Practice -->
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #EEF2FF; color: #4F46E5;">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <h3>Quantitative & Logical Aptitude</h3>
+          <p>
+            Master Quantitative Aptitude, Logical Reasoning, and Verbal Ability with timed quizzes, difficulty filtering, and stepwise explanations.
+          </p>
+          <div class="feature-highlights">
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Easy, Medium & Hard test filters</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Instant scorecards & solution breakdown</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Real company patterns (TCS, Infosys, etc.)</div>
+          </div>
+          <a href="aptitude.html" class="feature-link">
+            Explore Aptitude Module <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Feature 2: Coding Practice -->
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #ECFEFF; color: #0891B2;">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3>Curated Coding Practice</h3>
+          <p>
+            Practice company-favorite DSA questions with structured input/output formats, constraints, clean problem statements, and Java-first mock editor.
+          </p>
+          <div class="feature-highlights">
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Topic filters (Arrays, Trees, DP, Strings)</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Solved / Unsolved progress tracking</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> In-depth problem statements & sample tests</div>
+          </div>
+          <a href="coding.html" class="feature-link">
+            Explore Coding Arena <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Feature 3: Mock Interview Simulator -->
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #F5F3FF; color: #8B5CF6;">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h3>Mock Interview Simulator</h3>
+          <p>
+            Train for HR, Technical, Java, and DSA interviews. Type your responses and receive detailed mock score feedback and tips for enhancement.
+          </p>
+          <div class="feature-highlights">
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> HR & Behavioral question tracks</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Core Java & OOPs conceptual interview</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Instant score, remarks & previous history</div>
+          </div>
+          <a href="interview.html" class="feature-link">
+            Explore Interview Simulator <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Feature 4: Study Planner -->
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #FEF3C7; color: #D97706;">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <h3>Smart Study Planner</h3>
+          <p>
+            Never miss preparation goals. Plan daily tasks with category tags, custom priorities, due dates, and visual checklist completion.
+          </p>
+          <div class="feature-highlights">
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Calendar-style task overview</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Priority tagging (High, Medium, Low)</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Daily progress tracker & task streaks</div>
+          </div>
+          <a href="planner.html" class="feature-link">
+            Explore Study Planner <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Feature 5: Progress & Analytics -->
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #D1FAE5; color: #059669;">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>Deep Progress & Analytics</h3>
+          <p>
+            Track your weekly consistency, topic-wise accuracy, question counts, and readiness index with responsive visual charts.
+          </p>
+          <div class="feature-highlights">
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Weekly preparation performance graph</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Accuracy percentage across categories</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Weak area identification</div>
+          </div>
+          <a href="progress.html" class="feature-link">
+            Explore Progress Analytics <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Feature 6: Student Profile & Achievements -->
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #FCE7F3; color: #DB2777;">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3>Student Profile & Badges</h3>
+          <p>
+            Showcase your academic background, college details, technical skillset, milestone badges, and tests completed in a clean profile.
+          </p>
+          <div class="feature-highlights">
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Academic & department metadata</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Milestone badges & achievements</div>
+            <div class="feature-highlight-item"><i class="fa-solid fa-check"></i> Comprehensive readiness resume overview</div>
+          </div>
+          <a href="profile.html" class="feature-link">
+            Explore Profile Hub <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. Preparation Roadmap ("How It Works")
+       ========================================================================= -->
+  <section class="section section-subtle" id="roadmap">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fa-solid fa-map-location-dot"></i> Step-by-Step Path</span>
+        <h2 class="section-title">Your 4-Stage Campus Placement Roadmap</h2>
+        <p class="section-subtitle">
+          Follow our proven placement framework designed to transition students from foundational concepts to offer letter.
+        </p>
+      </div>
+
+      <div class="roadmap-steps-grid">
+        <!-- Step 1 -->
+        <div class="roadmap-card">
+          <div class="step-number">01</div>
+          <div class="step-icon-wrap">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <h4>Diagnostic Check</h4>
+          <p>Take quick initial tests across Quantitative, Logical & Coding topics to discover your strengths and focus areas.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="roadmap-card">
+          <div class="step-number">02</div>
+          <div class="step-icon-wrap" style="background: #ECFEFF; color: #0891B2;">
+            <i class="fa-solid fa-calendar-day"></i>
+          </div>
+          <h4>Structured Daily Prep</h4>
+          <p>Organize daily study tasks on your Study Planner and solve curated question sets with zero distractions.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="roadmap-card">
+          <div class="step-number">03</div>
+          <div class="step-icon-wrap" style="background: #F5F3FF; color: #8B5CF6;">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h4>Mock Interviews</h4>
+          <p>Simulate realistic technical and behavioral interviews with structured questions, time limits, and feedback.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="roadmap-card">
+          <div class="step-number">04</div>
+          <div class="step-icon-wrap" style="background: #D1FAE5; color: #059669;">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h4>Crack Campus Drive</h4>
+          <p>Enter your campus placement drive with high confidence, proven test scores, and comprehensive preparation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. Placement Statistics Banner
+       ========================================================================= -->
+  <section class="section" id="stats">
+    <div class="container">
+      <div class="stats-banner">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value" data-counter-target="95" data-counter-suffix="%">0%</div>
+            <div class="stat-label">Placement Success Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" data-counter-target="25000" data-counter-suffix="+">0</div>
+            <div class="stat-label">Practice Questions Solved</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" data-counter-target="150" data-counter-suffix="+">0</div>
+            <div class="stat-label">Target Companies Covered</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" data-counter-target="98" data-counter-suffix="%">0%</div>
+            <div class="stat-label">Student Satisfaction Score</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. Student Testimonials / Placed Reviews
+       ========================================================================= -->
+  <section class="section section-subtle" id="testimonials">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fa-solid fa-star"></i> Student Voices</span>
+        <h2 class="section-title">Success Stories from Placed Students</h2>
+        <p class="section-subtitle">
+          See how students from diverse colleges used Smart Placement Hub to land their dream job offers.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The Java interview questions and coding arena directly matched the technical rounds of my campus drive. The daily study planner kept me disciplined throughout final year!"
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">AK</div>
+            <div class="author-info">
+              <h4>Aditya Kumar</h4>
+              <p>Anna University, B.Tech CSE</p>
+            </div>
+            <span class="placement-badge">Placed @ TCS Digital</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "Aptitude used to be my biggest weakness. Practicing quantitative and logical sections with difficulty filters on Smart Placement Hub boosted my speed significantly."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #ECFEFF; color: #0891B2;">PS</div>
+            <div class="author-info">
+              <h4>Pooja Sharma</h4>
+              <p>SRM Institute, B.Tech IT</p>
+            </div>
+            <span class="placement-badge">Placed @ Infosys SP</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The mock HR and Technical interview module gave me the exact confidence I needed. The score breakdown and feedback helped me fix common communication mistakes."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #FEF3C7; color: #D97706;">RM</div>
+            <div class="author-info">
+              <h4>Rahul Menon</h4>
+              <p>PSG Tech, B.E ECE</p>
+            </div>
+            <span class="placement-badge">Placed @ Cognizant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. Call to Action Banner
+       ========================================================================= -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="section-title">Ready to Crack Your Campus Placements?</h2>
+        <p>
+          Join thousands of students building their careers today. Access curated aptitude tests, Java coding problems, and mock interviews with instant feedback.
+        </p>
+        <div class="cta-actions">
+          <a href="register.html" class="btn btn-white btn-lg" id="ctaRegisterBtn">
+            <span>Create Free Student Account</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="dashboard.html" class="btn btn-secondary btn-lg" style="background: rgba(255,255,255,0.15); color: #FFFFFF; border-color: rgba(255,255,255,0.3);" id="ctaDashboardBtn">
+            <span>View Student Dashboard</span>
+            <i class="fa-solid fa-gauge-high"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. Footer
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color: #FFFFFF;">
+            <div class="brand-icon-wrapper">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <span>Smart<span>Placement</span>Hub</span>
+          </a>
+          <p>
+            The dedicated placement preparation hub helping college students master aptitude, programming, and interviews with structured analytics and study planning.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Practice Modules -->
+        <div class="footer-col">
+          <h4>Practice Modules</h4>
+          <div class="footer-links">
+            <a href="aptitude.html">Quantitative Aptitude</a>
+            <a href="aptitude.html">Logical Reasoning</a>
+            <a href="aptitude.html">Verbal Ability</a>
+            <a href="coding.html">Java Coding Arena</a>
+            <a href="interview.html">HR & Tech Interviews</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Student Tools -->
+        <div class="footer-col">
+          <h4>Student Tools</h4>
+          <div class="footer-links">
+            <a href="dashboard.html">Student Dashboard</a>
+            <a href="planner.html">Daily Study Planner</a>
+            <a href="progress.html">Performance Analytics</a>
+            <a href="profile.html">Student Profile</a>
+            <a href="register.html">Create Account</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Resources -->
+        <div class="footer-col">
+          <h4>Placement Hub</h4>
+          <div class="footer-links">
+            <a href="#roadmap">Placement Roadmap</a>
+            <a href="#features">Company Patterns</a>
+            <a href="#stats">Success Metrics</a>
+            <a href="#testimonials">Placement Stories</a>
+            <a href="login.html">Student Login</a>
+          </div>
+        </div>
+
+        <!-- Col 5: Newsletter -->
+        <div class="footer-col">
+          <h4>Placement Updates</h4>
+          <p style="color: #94A3B8; font-size: 0.85rem; margin-bottom: 0.75rem;">
+            Subscribe to receive top company question alerts and weekly placement preparation tips.
+          </p>
+          <form class="newsletter-form" id="newsletterForm">
+            <div class="newsletter-input-group">
+              <input type="email" placeholder="Enter student email" required>
+              <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Smart Placement Hub. Built for ambitious college students.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Placement Guide</a>
+          <a href="mailto:support@smartplacementhub.com">Contact Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+/* ==========================================================================
+   SMART PLACEMENT HUB - RESPONSIVE & MOBILE DESIGN
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Desktop / Large Screens (Max 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .roadmap-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1.25fr;
+  }
+  
+  .footer-grid .footer-col:nth-child(4) {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablets / Medium Screens (Max 992px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  :root {
+    --nav-height: 68px;
+  }
+
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  .hero-section {
+    padding-top: calc(var(--nav-height) + 3rem);
+    padding-bottom: 4rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-trust-row {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Navigation Drawer for Tablet/Mobile */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100vh;
+    background: #FFFFFF;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6rem 2rem 2.5rem;
+    box-shadow: -10px 0 30px rgba(15, 23, 42, 0.15);
+    transition: right var(--transition-normal);
+    z-index: 1050;
+    gap: 1.25rem;
+    overflow-y: auto;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-menu .nav-actions-mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+    z-index: 1100;
+  }
+
+  /* Stats Banner */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  /* Testimonials */
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Phones (Max 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-banner {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stat-item::after {
+    display: none !important;
+  }
+
+  .cta-box {
+    padding: 3rem 1.5rem;
+  }
+
+  .floating-badge {
+    display: none; /* Hide floating badges on narrow mobile to prevent overflow */
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Small Mobile Phones (Max 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .preview-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-pill {
+    font-size: 0.775rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Backdrop Overlay for Mobile Drawer
+   -------------------------------------------------------------------------- */
+.drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1040;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
