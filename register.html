@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Registration - Smart Placement Hub">
+  <title>Student Registration | Smart Placement Hub</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core & Auth Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <!-- Left Decorative Side Panel -->
+    <aside class="auth-sidebar">
+      <a href="index.html" class="auth-sidebar-brand" id="authRegBrandLogo">
+        <div class="brand-icon-wrapper" style="width: 36px; height: 36px; font-size: 1rem;">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <span>Smart<span>Placement</span>Hub</span>
+      </a>
+
+      <div class="auth-sidebar-content">
+        <div class="auth-sidebar-tag">
+          <i class="fa-solid fa-star"></i> Join 15,000+ Students
+        </div>
+        <h1 class="auth-sidebar-title">
+          Build Your Placement Success Story Today.
+        </h1>
+        <p class="auth-sidebar-desc">
+          Get personalized study pathways, real company question banks, Java coding mock tests, and AI interview scorecards designed specifically for college placements.
+        </p>
+
+        <div class="auth-feature-list">
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <span>Top hiring company patterns (TCS, Infosys, Amazon, etc.)</span>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <span>Category-wise accuracy & readiness analytics</span>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon"><i class="fa-solid fa-fire"></i></div>
+            <span>Maintain study streaks & track daily task goals</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-sidebar-footer">
+        100% Free for College Students • No Credit Card Required
+      </div>
+    </aside>
+
+    <!-- Right Form Panel -->
+    <main class="auth-main">
+      <div class="auth-card-inner">
+        
+        <!-- Header -->
+        <div class="auth-header">
+          <h2>Create Student Account 🚀</h2>
+          <p>Fill in your academic details to personalize your placement roadmap.</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form class="auth-form" id="registerForm" novalidate>
+          
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="regFullName" class="form-label">Full Name</label>
+            <div class="input-wrapper">
+              <input 
+                type="text" 
+                id="regFullName" 
+                class="form-control" 
+                placeholder="e.g. Aditya Sharma" 
+                autocomplete="name"
+                required
+              >
+              <i class="fa-solid fa-user input-icon"></i>
+            </div>
+            <div class="form-feedback"></div>
+          </div>
+
+          <!-- Email Address -->
+          <div class="form-group">
+            <label for="regEmail" class="form-label">Email Address</label>
+            <div class="input-wrapper">
+              <input 
+                type="email" 
+                id="regEmail" 
+                class="form-control" 
+                placeholder="aditya@college.edu" 
+                autocomplete="email"
+                required
+              >
+              <i class="fa-solid fa-envelope input-icon"></i>
+            </div>
+            <div class="form-feedback"></div>
+          </div>
+
+          <!-- Password & Confirm Password Row -->
+          <div class="form-row-2">
+            <!-- Password -->
+            <div class="form-group">
+              <label for="regPassword" class="form-label">Password</label>
+              <div class="input-wrapper">
+                <input 
+                  type="password" 
+                  id="regPassword" 
+                  class="form-control" 
+                  placeholder="Min 6 characters" 
+                  autocomplete="new-password"
+                  required
+                >
+                <i class="fa-solid fa-lock input-icon"></i>
+                <button 
+                  type="button" 
+                  class="password-toggle-btn" 
+                  data-target="regPassword" 
+                  aria-label="Toggle password visibility"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <!-- Strength meter -->
+              <div class="password-strength-wrap">
+                <div class="strength-bars">
+                  <div class="strength-bar" id="strBar1"></div>
+                  <div class="strength-bar" id="strBar2"></div>
+                  <div class="strength-bar" id="strBar3"></div>
+                </div>
+                <div class="strength-text" id="strengthText">Enter at least 6 characters</div>
+              </div>
+              <div class="form-feedback"></div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label for="regConfirmPassword" class="form-label">Confirm Password</label>
+              <div class="input-wrapper">
+                <input 
+                  type="password" 
+                  id="regConfirmPassword" 
+                  class="form-control" 
+                  placeholder="Repeat password" 
+                  autocomplete="new-password"
+                  required
+                >
+                <i class="fa-solid fa-shield-halved input-icon"></i>
+                <button 
+                  type="button" 
+                  class="password-toggle-btn" 
+                  data-target="regConfirmPassword" 
+                  aria-label="Toggle confirm password visibility"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-feedback"></div>
+            </div>
+          </div>
+
+          <!-- College Name -->
+          <div class="form-group">
+            <label for="regCollege" class="form-label">College / University Name</label>
+            <div class="input-wrapper">
+              <input 
+                type="text" 
+                id="regCollege" 
+                class="form-control" 
+                placeholder="e.g. Anna University / IIT / NIT" 
+                required
+              >
+              <i class="fa-solid fa-building-columns input-icon"></i>
+            </div>
+            <div class="form-feedback"></div>
+          </div>
+
+          <!-- Department & Graduation Year Row -->
+          <div class="form-row-2">
+            <!-- Department -->
+            <div class="form-group">
+              <label for="regDept" class="form-label">Department</label>
+              <div class="input-wrapper">
+                <select id="regDept" class="form-control" required>
+                  <option value="">Select Branch</option>
+                  <option value="Computer Science & Engineering">Computer Science & Engg (CSE)</option>
+                  <option value="Information Technology">Information Technology (IT)</option>
+                  <option value="Artificial Intelligence & Data Science">AI & Data Science (AI/DS)</option>
+                  <option value="Electronics & Communication">Electronics & Comm (ECE)</option>
+                  <option value="Electrical & Electronics">Electrical & Electronics (EEE)</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering (MECH)</option>
+                  <option value="Civil Engineering">Civil Engineering (CIVIL)</option>
+                  <option value="Other Engineering">Other Specialization</option>
+                </select>
+                <i class="fa-solid fa-book-open input-icon"></i>
+              </div>
+              <div class="form-feedback"></div>
+            </div>
+
+            <!-- Graduation Year -->
+            <div class="form-group">
+              <label for="regGradYear" class="form-label">Graduation Year</label>
+              <div class="input-wrapper">
+                <select id="regGradYear" class="form-control" required>
+                  <option value="">Select Year</option>
+                  <option value="2025">2025 (Immediate Batch)</option>
+                  <option value="2026" selected>2026 (Pre-final Year)</option>
+                  <option value="2027">2027 (Sophomore)</option>
+                  <option value="2028">2028 (Freshman)</option>
+                </select>
+                <i class="fa-solid fa-calendar-check input-icon"></i>
+              </div>
+              <div class="form-feedback"></div>
+            </div>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="form-options-row">
+            <label class="custom-checkbox-label">
+              <input type="checkbox" id="regTerms" checked required>
+              <span>I agree to the <a href="#" class="auth-link">Terms of Service</a> & <a href="#" class="auth-link">Privacy Policy</a></span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary auth-submit-btn" id="registerSubmitBtn">
+            <span>Create Student Account</span>
+            <i class="fa-solid fa-user-plus"></i>
+          </button>
+        </form>
+
+        <!-- Login Link Prompt -->
+        <div class="auth-footer-prompt">
+          Already have an account? 
+          <a href="login.html" class="auth-link">Log In</a>
+        </div>
+
+        <div class="text-center" style="margin-top: 1rem;">
+          <a href="index.html" class="back-home-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+          </a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Client Script -->
+  <script src="js/login.js"></script>
+</body>
+</html>

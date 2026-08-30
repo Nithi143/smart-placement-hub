@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Login - Smart Placement Hub">
+  <title>Student Login | Smart Placement Hub</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core & Auth Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <!-- Left Decorative Side Panel -->
+    <aside class="auth-sidebar">
+      <a href="index.html" class="auth-sidebar-brand" id="authBrandLogo">
+        <div class="brand-icon-wrapper" style="width: 36px; height: 36px; font-size: 1rem;">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <span>Smart<span>Placement</span>Hub</span>
+      </a>
+
+      <div class="auth-sidebar-content">
+        <div class="auth-sidebar-tag">
+          <i class="fa-solid fa-bolt"></i> Student Placement Portal
+        </div>
+        <h1 class="auth-sidebar-title">
+          Master Placements, Coding & Interviews.
+        </h1>
+        <p class="auth-sidebar-desc">
+          Sign in to access your customized daily study planner, company-specific aptitude drills, and mock technical interviews.
+        </p>
+
+        <div class="auth-feature-list">
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon"><i class="fa-solid fa-check"></i></div>
+            <span>25,000+ Aptitude & Java DSA practice questions</span>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon"><i class="fa-solid fa-check"></i></div>
+            <span>Instant AI-style mock interview scorecards</span>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon"><i class="fa-solid fa-check"></i></div>
+            <span>Day-wise structured preparation tracker</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-sidebar-footer">
+        &copy; 2026 Smart Placement Hub • Built for College Students
+      </div>
+    </aside>
+
+    <!-- Right Form Panel -->
+    <main class="auth-main">
+      <div class="auth-card-inner">
+        
+        <!-- Header -->
+        <div class="auth-header">
+          <h2>Welcome Back 👋</h2>
+          <p>Enter your student credentials to continue your placement preparation.</p>
+        </div>
+
+        <!-- Demo Account Quick Fill Helper -->
+        <div class="demo-account-box">
+          <div class="demo-account-info">
+            <i class="fa-solid fa-key"></i>
+            <span>Quick Testing? Use demo student login</span>
+          </div>
+          <button type="button" class="demo-fill-btn" id="demoFillBtn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Auto-Fill
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form" id="loginForm" novalidate>
+          
+          <!-- Email / Username -->
+          <div class="form-group">
+            <label for="loginEmail" class="form-label">Email or Student ID</label>
+            <div class="input-wrapper">
+              <input 
+                type="email" 
+                id="loginEmail" 
+                class="form-control" 
+                placeholder="student@college.edu" 
+                autocomplete="email"
+                required
+              >
+              <i class="fa-solid fa-envelope input-icon"></i>
+            </div>
+            <div class="form-feedback"></div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <div class="form-label">
+              <label for="loginPassword">Password</label>
+              <a href="#" class="auth-link" style="font-size: 0.8rem; font-weight: 500;" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+            <div class="input-wrapper">
+              <input 
+                type="password" 
+                id="loginPassword" 
+                class="form-control" 
+                placeholder="Enter your password" 
+                autocomplete="current-password"
+                required
+              >
+              <i class="fa-solid fa-lock input-icon"></i>
+              <button 
+                type="button" 
+                class="password-toggle-btn" 
+                data-target="loginPassword" 
+                aria-label="Toggle password visibility"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="form-feedback"></div>
+          </div>
+
+          <!-- Options Row: Remember Me -->
+          <div class="form-options-row">
+            <label class="custom-checkbox-label">
+              <input type="checkbox" id="rememberMe" checked>
+              <span>Remember me on this device</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary auth-submit-btn" id="loginSubmitBtn">
+            <span>Log In to Hub</span>
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          </button>
+        </form>
+
+        <!-- Register Link Prompt -->
+        <div class="auth-footer-prompt">
+          Don't have a placement account? 
+          <a href="register.html" class="auth-link">Create Account</a>
+        </div>
+
+        <div class="text-center" style="margin-top: 1rem;">
+          <a href="index.html" class="back-home-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+          </a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Client Script -->
+  <script src="js/login.js"></script>
+</body>
+</html>
